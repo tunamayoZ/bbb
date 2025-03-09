@@ -1,0 +1,168 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden; /* 横スクロールを無効にする */
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+header nav {
+    display: flex;
+    gap: 10px;
+}
+
+header nav a {
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+header nav a:hover {
+    background-color: #555;
+}
+
+.slides-container {
+    overflow: hidden; /* 横スクロールを無効にする */
+    width: 100%;
+    position: relative;
+    margin-bottom: 0; /* スライドと目次の間の隙間をなくす */
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.5s ease; /* スライドの移動をスムーズにする */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.slides section {
+    flex: none;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 20px;
+    overflow-y: auto; /* スライド内で縦スクロールを可能にする */
+}
+
+.slides section h2 {
+    margin-top: 0;
+}
+
+.nav-buttons {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%; /* スライドの高さに合わせる */
+    pointer-events: none;
+}
+
+.slides-container .nav-buttons {
+    top: 0;
+    bottom: 0;
+}
+
+.nav-buttons button {
+    background-color: transparent; /* 背景色を透明にする */
+    border: none; /* ボーダーを削除 */
+    width: 50px; /* ボタンの幅を大きくする */
+    height: 100%; /* ボタンの高さをスライドの高さに合わせる */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    pointer-events: all;
+    transition: background-color 0.3s, opacity 0.3s; /* 背景色と透明度のトランジションを追加 */
+    z-index: 10; /* ボタンを前面に表示 */
+    opacity: 0; /* デフォルトで非表示 */
+}
+
+.nav-buttons button:hover {
+    background-color: rgba(0, 0, 0, 0.5); /* マウスオーバー時に背景色を濃くする */
+    opacity: 1; /* マウスオーバー時に表示 */
+}
+
+.nav-buttons button::before {
+    content: attr(data-arrow);
+    color: white; /* 矢印の色を黒にする */
+    font-size: 24px; /* 矢印のサイズを調整 */
+}
+
+.nav-area {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 20%; /* 両端の透明な領域の幅 */
+    pointer-events: all;
+}
+
+footer nav {
+    background-color: #f8f8f8;
+    padding: 20px;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+footer nav h2 {
+    margin-top: 0;
+    text-align: center; /* 見出しを中央揃え */
+    font-size: 1.5em; /* 見出しのフォントサイズを大きく */
+}
+
+.alphabet-section {
+    display: flex; /* フレックスボックスを使用して横並びにする */
+    align-items: center; /* 垂直方向の中央揃え */
+}
+
+.alphabet-section h3 {
+    margin: 0 10px 0 0; /* 右側にスペースを追加 */
+    font-size: 1.2em; /* アルファベット見出しのフォントサイズを調整 */
+    text-align: center; /* アルファベット見出しを中央揃え */
+    white-space: nowrap; /* 改行を防止 */
+}
+
+.alphabet-section ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* リストアイテム間の隙間を追加 */
+}
+
+.alphabet-section ul li {
+    margin: 5px 0;
+}
+
+.alphabet-section ul li a {
+    text-decoration: none;
+    color: #007bff;
+    padding: 5px 10px; /* リンクにパディングを追加 */
+    border: 1px solid #007bff; /* リンクにボーダーを追加 */
+    border-radius: 5px; /* リンクに角丸を追加 */
+    transition: background-color 0.3s, color 0.3s; /* 背景色と文字色のトランジションを追加 */
+    display: inline-block; /* リンクをインラインブロックにする */
+    font-size: 0.9em; /* フォントサイズを調整 */
+}
+
+.alphabet-section ul li a:hover {
+    background-color: #007bff; /* ホバー時の背景色を変更 */
+    color: white; /* ホバー時の文字色を変更 */
+}
